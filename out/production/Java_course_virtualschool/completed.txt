@@ -1,0 +1,655 @@
+import java.util.Scanner;
+
+public class Work {
+
+    public static void main(String[] args) {
+        int n, result = 0, i=0;
+
+        Scanner input = new Scanner(System.in);
+        System.out.print("Введите количестов n");
+        n = input.nextInt();
+        while (i < n) {
+            result += i;
+            i++;
+        };
+        if (result == (n * (n + 1)) / 2) {
+            System.out.println("Формула работает");
+        };
+        System.out.println(
+                1
+
+
+        );
+    }
+
+}
+
+import java.util.Scanner;
+
+public class Work {
+
+    public static void main(String[] args) {
+        int people = 9870;
+        int count_years = 0;
+
+        while (people < 30000) {
+            System.out.println(people);
+            people *= 1.1;
+            count_years++;
+        };
+
+        System.out.println(
+                count_years
+
+
+        );
+    }
+
+}
+
+import java.util.Scanner;
+
+public class Work {
+    /**
+     Задание
+
+     Напишите программу, которая запрашивает у пользователя числовые значения,
+     а выводит количество положительных и количество отрицательных введенных значений.
+
+     Подсказка: в качестве значения сигнальной метки используйте 0.
+     */
+    public static void main(String[] args) {
+
+        int positive = 0, negative = 0, num;
+        boolean stop = false;
+        Scanner input = new Scanner(System.in);
+
+        while (!stop) {
+            System.out.print("Введите число ");
+            num = input.nextInt();
+            if (num > 0) {
+                positive++;
+            } else {
+                negative++;
+            }
+            System.out.println("Положительных:" + positive + ". Отрицательных: " + negative);
+
+        }
+
+        System.out.println(
+
+
+
+        );
+    }
+
+}
+
+import java.util.Scanner;
+
+public class Work {
+    /**
+     Задание
+
+     Напишите программу с интерактивным циклом проверки правильности ввода данных,
+     считывающую пары целых чисел до тех пор, пока не встретит пару, в которой одно из чисел кратно другому.
+     */
+    public static void main(String[] args) {
+
+        int a, b;
+        boolean flag = false;
+        Scanner input = new Scanner(System.in);
+
+        while (!flag) {
+            System.out.print("Введите 2 числа через пробел");
+
+            a = input.nextInt();
+            b = input.nextInt();
+
+            if ((a % b == 0) || (b % a == 0)) {
+                flag = true;
+                System.out.println("Числа кратны");
+            }
+        }
+
+
+        System.out.println(
+
+
+
+        );
+    }
+
+}
+
+import java.util.Scanner;
+
+public class Work {
+    /**
+     Задание
+
+     Напишите программу, которая отображает таблицу умножения для чисел от 0 до 9.
+     */
+    public static void main(String[] args) {
+
+
+        for (int i = 1; i <= 9; i++) {
+            for (int j = 1; j <= 9; j++) {
+                System.out.print("\t" + (i * j));
+            }
+            System.out.println();
+        }
+
+
+
+
+
+        System.out.println(
+
+        );
+    }
+
+}
+
+import java.util.Scanner;
+
+public class Work {
+    /**
+     Задание
+
+     Напишите программу, которая запрашивает у пользователю строку и отображает ее в обратном порядке. Пример запуска:
+
+     Введите строку: ABCD
+     Обратная строка равна DCBA
+     */
+    public static void main(String[] args) {
+        String word;
+        String reversedWord = "";
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Введите слово ");
+        word = input.nextLine();
+
+        for (int i = word.length()-1; i >= 0; i--) {
+            reversedWord += word.charAt(i);
+        }
+
+
+
+
+
+        System.out.println(
+                reversedWord
+        );
+    }
+
+}
+
+import java.util.Scanner;
+
+public class Work {
+    /**
+     Задание №1: Класс Rectangle
+     По примеру класса Circle, создайте класс Rectangle для представления прямоугольника. Класс Rectangle должен содержать:
+
+     Два поля данных типа double с именами width и height, задающими ширину и высоту прямоугольника. Значение по умолчанию: -1 как для ширины, так и для высоты.
+     Безаргументный конструктор, создающий прямоугольник с указанными по умолчанию значениями.
+     Конструктор, создающий прямоугольник с указанными шириной и высотой.
+     Метод с именем getArea(), возвращающий площадь этого прямоугольника.
+     Метод с именем getPerimeter(), возвращающий периметр.
+     Нарисуйте (на бумаге или в графическом редакторе) UML-диаграмму класса Rectangle, а затем реализуйте этот класс.
+     Напишите клиент этого класса — программу, которая создает два объекта типа Rectangle: первый — с шириной 4 и высотой 40,
+     а второй - с шириной 3.5 и высотой 35.9. Программа также должна отображать ширину, высоту, площадь и периметр каждого прямоугольника в указанном порядке.
+     */
+    public static void main(String[] args) {
+        Rectangle rect1 = new Rectangle(4, 40);
+        Rectangle rect2 = new Rectangle(3.5, 35.9);
+
+        System.out.println("Программа также должна отображать ширину " + rect1.width +
+                ", высоту " + rect1.height + ", площадь " + rect1.getArea() +
+                " и периметр " + rect1.getPerimeter() + " каждого прямоугольника в указанном порядке.");
+        System.out.println("Программа также должна отображать ширину" + rect2.width +
+                ", высоту " + rect2.height + ", площадь " + rect2.getArea() +
+                " и периметр " + rect2.getPerimeter() + " каждого прямоугольника в указанном порядке.");
+    }
+
+
+
+
+}
+
+import java.util.Scanner;
+
+public class Work {
+    /**
+     Задание №2: Класс Stock
+     По примеру класса Circle, создайте класс Stock для представления акций компании. Класс Stock должен содержать:
+
+     Строковое поле данных с именем symbol для обозначения акций.
+     Строковое поле данных с именем name для наименования акций.
+     Поле данных previousClosingPrice типа double, в котором хранится стоимость акций на момент закрытия предыдущего дня.
+     Поле данных currentPrice типа double, в котором хранится стоимость акций в настоящий момент.
+     Конструктор, создающий акции с указанными обозначением и наименованием.
+     Метод с именем getChangePercent(), который возвращает процент изменения стоимости акций с previousClosingPrice на currentPrice.
+     Нарисуйте (на бумаге или в графическом редакторе) UML-диаграмму класса Stock,
+     а затем реализуйте этот класс. Напишите клиент этого класса — программу,
+     которая создает объект типа Stock с обозначением SBER, именем ПАО Сбербанк,
+     стоимостью акций на момент закрытия предыдущего дня, равной 281.50. З
+     адайте новую стоимость акций в настоящий момент, равную 282.87, и отобразите процент изменения стоимости акций.
+     */
+    public static void main(String[] args) {
+        Stock stock = new Stock("SBER", "ПАО Сбербанк", 281.5, 282.87);
+
+        System.out.println(stock.getChangePercent());
+
+    }
+
+
+
+
+}
+import java.util.Scanner;
+
+public class Work {
+    /**
+     Задание №3: Класс Date
+     Напишите программу, которая создает объект Date,
+     устанавливает у него прошедшее время, равным 10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000 и 100000000000,
+     и отображает дату и время с помощью метода toString(), соответственно.
+     */
+    public static void main(String[] args) {
+        long[] array = new long[]{10000, 100000, 1000000, 10000000, 100000000, 1000000000, 10000000000l, 100000000000l};
+
+        for (long e: array) {
+            System.out.println(new java.util.Date(e).toString());
+        }
+
+    }
+
+
+
+
+}
+import java.util.Scanner;
+
+public class Work {
+    /**
+     Задание №4: Класс Random
+     Напишите программу, которая создает объект типа Random с начальным (случайным)
+     значением 1000 и отображает первые 50 случайных целых чисел между 0 и 100 с помощью метода nextInt(100).
+
+     */
+    public static void main(String[] args) {
+        java.util.Random random = new java.util.Random(1000);
+
+
+        for (int i=0; i < 50; i++) {
+            System.out.println(random.nextInt(100));
+        }
+
+    }
+
+
+
+
+}
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
+public class Work {
+    /**
+     Задание №5: Класс GregorianCalendar
+     У Java API в пакете java.util есть класс GregorianCalendar, который можно использовать для получения года, месяца и дня даты.
+     Безаргументный конструктор создает объект типа GregorianCalendar для текущей даты,
+     а методы get(GregorianCalendar.YEAR), get(GregorianCalendar.MONTH) и get(GregorianCalendar.DAY_OF_MONTH)
+     возвращают год, месяц (от 0 до 11) и день. Напишите программу для выполнения следующих двух задач:
+
+     1. Отобразите текущий год, месяц и день.
+
+     2. У класса GregorianCalendar есть метод setTimeInMillis(long),
+     который можно использовать для задания указанного времени,
+     прошедшего с 1 января 1970 г. Установите значение, равное 1234567898765L, и отобразите для него год, месяц и день.
+     */
+    public static void main(String[] args) {
+        java.util.GregorianCalendar date = new java.util.GregorianCalendar();
+        System.out.println(date.get(GregorianCalendar.YEAR) + " " + date.get(GregorianCalendar.DAY_OF_MONTH) + " " + date.get(GregorianCalendar.MONTH));
+        date.setTimeInMillis(1234567898765L);
+        System.out.println(date.get(GregorianCalendar.YEAR) + " " + date.get(GregorianCalendar.DAY_OF_MONTH) + " " + date.get(GregorianCalendar.MONTH));
+    }
+
+
+
+
+}
+import java.util.Arrays;
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
+public class Work {
+    /**
+     * Создайте класс с именем StopWatch для представления секундомера. Класс StopWatch должен содержать:
+     *
+     * Скрытые поля данных startTime и endTime с getter-методами.
+     * Безаргументный конструктор, который инициализирует startTime с текущим временем.
+     * Метод с именем start(), который сбрасывает startTime до текущего времени.
+     * Метод с именем stop(), который присваивает endTime текущее время.
+     * Метод с именем getElapsedTime(), который возвращает прошедшее время на секундомере в миллисекундах.
+     * Нарисуйте UML-диаграмму класса StopWatch, а затем реализуйте этот класс. Напишите клиент этого класса – программу, которая вычисляет время выполнения сортировки 100 000 чисел методом выбора.
+     */
+    public static double[] array = new double[100000];
+    public static void main(String[] args) {
+        StopWatch obj = new StopWatch();
+        for (int i = 0; i < array.length; i++) array[i] = Math.random();
+        obj.start();
+        Arrays.sort(array);
+        obj.stop();
+        System.out.println("Ушло времени" + (Long)obj.getElapsedTime());
+    }
+
+
+
+
+}
+import java.util.Arrays;
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
+public class Work {
+    /**
+     * Задание №7: Класс Location
+     * Создайте класс с именем Location для нахождения наибольшего элемента и его позиции в двумерном массиве.
+     * Класс должен содержать public-поля row, column и maxValue,
+     * в которых будут храниться наибольший элемент типа double и его индексы в двумерном массиве со строчками и столбцами типа int.
+     *
+     * Напишите следующий метод, который возвращает позицию наибольшего элемента в двумерном массиве:
+     *
+     * public static Location locateLargest(double[][] a)
+     * Возвращаемое значение должно быть типа Location. Напишите клиент этого класса — программу,
+     * которая предлагает пользователю ввести двумерный массив и отображает позицию наибольшего элемента в этом массиве.
+     * Пример выполнения программы:
+     *
+     * Введите количество строчек и столбцов массива: 3 4
+     * Введите массив:
+     * 23.5 35 2 10
+     * 4.5 3 45 3.5
+     * 35 44 5.5 9.6
+     * Наибольший элемент массива, равный 45.0, находится в позиции (1, 2)
+     */
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Введите количество строчек и столбцов массива:");
+
+        int rows = input.nextInt();
+        int cols = input.nextInt();
+        double[][] array = new double[rows][cols];
+
+        System.out.println("");
+        System.out.print("Введите массив: ");
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                array[row][col] = input.nextDouble();
+            }
+        }
+        Location obj = new Location();
+        obj = obj.locateLargest(array);
+
+
+        System.out.println("Наибольший элемент массива, равный " + obj.maxValue +
+                ", находится в позиции (" + obj.row + ", " + obj.column + ")");
+
+    }
+
+
+
+
+}
+import java.util.Arrays;
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
+public class Work {
+    /**
+
+     */
+    public static void main(String[] args) {
+        Account account = new Account(1122, 20000);
+        Account.setAnnualInterestRate(4.5);
+        account.withdraw(2500);
+        account.deposit(3000);
+        System.out.println("Баланс равен " + account.getBalance() + " руб.");
+        System.out.println("Ежемесячный процент равен " + account.getMonthlyInterest() + " руб.");
+        System.out.println("Этот счет был создан " + account.getDateCreated());
+
+
+    }
+
+
+
+
+}
+import java.util.Arrays;
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
+public class Work {
+    /**
+     * Создайте класс MyTime для представления времени. Класс MyTime должен содержать:
+     *
+     * Поля данных hour, minute и second, которые представляют время.
+     * Безаргументный конструктор, который создает объект типа MyTime для текущего времени.
+     * (Значения полей данных этого объекта представляют текущее время.)
+     * Конструктор, который создает объект типа MyTime с указанным временем в миллисекундах, прошедших с 00:00, 1 января 1970 г.
+     * (Значения полей данных этого объекта будут представлять это время.)
+     * Конструктор, который создает объект типа MyTime с указанными часами, минутами и секундами.
+     * Три getter-метода для полей данных hour, minute и second соответственно.
+     * Метод с именем setTime(long elapseTime), который присваивает объекту новое время с помощью прошедшего время.
+     * Например, если прошедшее время равно 555550000 миллисекундам, то hour равно 10, minute равно 19, а second равно 10.
+     * Нарисуйте UML-диаграмму класса MyTime, а затем реализуйте этот класс.
+     * Напишите клиент этого класса — программу, которая создает три объекта типа MyTime (с помощью new MyTime(), new MyTime(555550000) и new MyTime(5, 23, 55))
+     * и отображает значениях их полей данных hour, minute и second в формате часы:минуты:секунды.
+     *
+     * (Подсказка: первые два конструктора извлекут значения hour, minute и second из прошедшего времени.
+     * Для безаргументного конструктора текущее время может быть получено с помощью метода System.currentTimeMillis(),
+     * как было показано в программе ShowCurrentTime из курса «Основы Java-программирования». Пусть время будет GMT.)
+     */
+
+
+    public static void main(String[] args) {
+        MyTime obj1 = new MyTime();
+        MyTime obj2 = new MyTime(555550000);
+        MyTime obj3 = new MyTime(5, 23, 55);
+        System.out.println(obj1.printTime());
+        System.out.println(obj2.printTime());
+        System.out.println(obj3.printTime());
+
+    }
+
+
+}
+import java.util.Arrays;
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
+public class Work {
+    /**
+     * Задание №10: Класс MyDate
+     * Создайте класс с именем MyDate для представления даты. Класс MyDate должен содержать:
+     *
+     * Поля данных year, month и day, которые представляют дату. Поле month должно быть основано на числе, т.е. 0 — для января, 1 — для февраля и т.д.
+     * Безаргументный конструктор, который создает объект типа MyDate для текущей даты.
+     * Конструктор, который создает объект типа MyDate с указанным временем в миллисекундах, прошедших с 00:00, 1 января 1970 г.
+     * Конструктор, который создает объект типа MyDate с указанными годом, месяцем и днем.
+     * Три getter-метода для полей данных year, month и day, соответственно.
+     * Метод с именем setDate(long elapsedTime), который присваивает новую дату объекту, используя прошедшее время.
+     * Нарисуйте UML-диаграмму класса MyDate, а затем реализуйте этот класс. Напишите клиент этого класса — программу,
+     * которая создает два объекта типа MyDate (с помощью new MyDate() и new MyDate(34355555133101L)) и отображает их год, месяц и день.
+     *
+     * (Подсказка: первые два конструктора извлекут год, месяц и день из прошедшего времени.
+     * Например, если прошедшее время составляет 561555550000 миллисекунд, то год равен 1987, месяц равен 9, а день равен 18.
+     * Для упрощения кодирования можно использовать класс GregorianCalendar, описанный в подразделе «Задания. Часть 2» этого курса.)
+     */
+
+
+    public static void main(String[] args) {
+        MyDate mydate = new MyDate();
+
+        MyDate mydate1 = new MyDate(561555550000l);
+        System.out.println(mydate.print());
+        System.out.println(mydate1.print());
+
+    }
+
+
+}
+import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
+public class Work {
+    /**
+     * Задание №11
+     * Найдите первые 10 чисел с 50 десятичными цифрами, которые кратны 2 или 3.
+     *
+     */
+
+
+    public static void main(String[] args) {
+        int count = 0;
+        BigInteger one = new BigInteger("1");
+        BigInteger number = new BigInteger("10000000000000000000000000000000000000000000000000");
+
+        while (count < 10) {
+            if (number.mod(BigInteger.valueOf(2)).equals(BigInteger.valueOf(0)) ||
+                    number.mod(BigInteger.valueOf(3)).equals(BigInteger.valueOf(0))) {
+                System.out.println(number);
+                count++;
+            }
+
+            number = number.add(one);
+        }
+    }
+
+
+}
+import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
+public class Work {
+    /**
+     * Задание №12
+     * Найдите первые 10 квадратных чисел, которые больше Long.MAX_VALUE.
+     * Квадратное число — число в виде .
+     * Например, 4, 9 и 16 являются квадратными числами.
+     * Найдите эффективный подход для максимально быстрого выполнения своей программы.
+     *
+     */
+
+
+    public static void main(String[] args) {
+        BigInteger number = new BigInteger(String.valueOf(BigInteger.valueOf(Long.MAX_VALUE)));
+        BigInteger firstVal = number.sqrt().add(BigInteger.valueOf(1));
+        System.out.println("first val" + firstVal);
+        System.out.println("Long.Max is " + number);
+        for (int i = 0; i < 10; i++) {
+
+            System.out.println(firstVal.pow(2));
+            firstVal = firstVal.add(BigInteger.valueOf(1));
+        }
+    }
+
+
+}
+import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
+public class Work {
+    /**
+     * Задание №13
+     * Напишите программу, которая находит 5 простых чисел, которые больше Long.MAX_VALUE.
+     *
+     */
+
+
+    public static void main(String[] args) {
+        BigInteger number = new BigInteger(String.valueOf(BigInteger.valueOf(Long.MAX_VALUE)));
+        int count = 0;
+
+        while (count < 5) {
+            if (number.isProbablePrime(1)) {
+                System.out.println(number + " is probably prime");
+                count ++;
+            }
+
+            number = number.add(BigInteger.valueOf(1));
+        }
+    }
+
+
+}
+import java.beans.beancontext.BeanContext;
+import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
+public class Work {
+    /**
+     Задание №14
+     Простое число называется простым числом Мерсенна, если его можно записать в виде ,
+     где р — положительное целое число.
+     Напишите программу, которая находит все простые числа Мерсенна для p<=100 и отображает следующие выходные данные:
+
+     p   2^p - 1
+     ---------------------
+     2      3
+
+     3      7
+
+     5      31
+     (Подсказка: Здесь для хранения числа необходимо использовать класс BigInteger,
+     так как оно слишком велико, чтобы его можно было хранить с помощью типа данных long.
+     В случае long, выполнение программы может занять несколько часов.)
+     */
+
+
+    public static void main(String[] args) {
+        BigInteger two = new BigInteger("2");
+
+        for (int p = 0; p <= 100; p++) {
+            if (isPrime(p)) {
+                System.out.println(two.pow(p).subtract(BigInteger.valueOf(1)));
+            }
+        }
+
+    }
+
+    public static boolean isPrime(int value) {
+        for (int i = 2; i <= value / 2; ++i) {
+            if (value % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
