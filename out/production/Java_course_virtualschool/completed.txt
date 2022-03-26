@@ -672,6 +672,580 @@ public class Work {
         }
     }
 }
+import java.beans.beancontext.BeanContext;
+import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
+public class Work {
+    /**
+     * Задание №22: Класс Triangle
+     * Создайте класс Triangle для представления треугольников, который порождается от класса GeometricObject.
+     * Класс Triangle должен содержать:
+     *
+     * Три поля данных типа double с именами side1, side2 и side3 и с заданными по умолчанию значениями,
+     * равными 1.0, для обозначения трех сторон треугольника.
+     * Безаргументный конструктор, который создает треугольник с заданными по умолчанию значениями.
+     * Конструктор, который создает треугольник с side1, side2 и side3.
+     * Getter-методы для всех трех полей данных.
+     * Метод с именем getArea(), который возвращает площадь этого треугольника.
+     * Метод с именем getPerimeter(), который возвращает периметр этого треугольника.
+     * Метод с именем toString(), который возвращает строковое описание треугольника.
+     * Формулы для вычисления площади треугольника:
+     *
+     * ,
+     *
+     * ,
+     *
+     * где s — полупериметр, а area — площадь треугольника.
+     *
+     * Метод toString() должен быть реализован следующим образом:
+     *
+     * return "Треугольник: сторона1 = " + side1 + " сторона2 = " + side2 +
+     *   " сторона3 = " + side3;
+     * Нарисуйте UML-диаграммы классов Triangle и GeometricObject ,
+     * а затем реализуйте эти классы.
+     * Напишите клиент этих классов — программу,
+     * которая запрашивает у пользователя ввести три стороны треугольника,
+     * цвет и логическое значение для указания закрашен ли треугольник.
+     * Программа должна создавать объект типа Triangle с указанными сторонами
+     * и присваивать значения свойствам цвет (color) и заливка (isFilled) с помощью этих входных данных.
+     * Программа должна отображать площадь (area), периметр (perimeter), цвет, а также true или false для указания,
+     * закрашен треугольник или нет.
+     */
+
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Введите 3 стороны треугольника через пробел: ");
+        double side1, side2, side3;
+        String color;
+        boolean filled;
+
+        side1 = input.nextDouble();
+        side2 = input.nextDouble();
+        side3 = input.nextDouble();
+        System.out.println();
+        System.out.print("Введите цвет: ");
+        color = input.next();
+
+        System.out.println();
+        System.out.print("Введите закрашен ли треугольник: ");
+        filled = input.nextBoolean();
+
+        Triangle triangle = new Triangle(color, filled, side1, side2, side3);
+
+        System.out.println("Периметр " + triangle.getPerimeter());
+        System.out.println("Площадь " + triangle.getArea());
+        System.out.println("Цвет " + triangle.getColor());
+        System.out.println("Закрашен " + triangle.isFilled());
+
+
+    }
+}
+import java.beans.beancontext.BeanContext;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
+public class Work {
+    /**
+     Задание №23
+     Напишите следующий метод, который возвращает наибольшее значение в целочисленном списке типа ArrayList.
+     Этот метод должен возвращать значение null, если список пустой или его размер равен 0.
+
+     public static Integer max(ArrayList<Integer> list)
+     Напишите тестовую программу, которая запрашивает у пользователя последовательность чисел,
+     заканчивающуюся 0, и вызывает этот метод для возврата наибольшего значения из входных данных.
+     */
+
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        ArrayList<Integer> list = new ArrayList<>();
+        int number;
+        System.out.print("Введите числа через пробел");
+        do {
+            number = input.nextInt();
+            if (number != 0) {
+                list.add(number);
+            }
+        } while (number != 0);
+
+        System.out.println("Max is " + max(list));
+
+
+
+
+
+    }
+
+    public static Integer max(ArrayList<Integer> list){
+        if (list.isEmpty()) {
+            return null;
+        }
+        else if (list.size() == 0) {
+            return null;
+        } else {
+            return java.util.Collections.max(list);
+        }
+    }
+}
+import java.beans.beancontext.BeanContext;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
+public class Work {
+    /**
+     Задание №24
+     Напишите программу, которая создает список типа ArrayList
+     и добавляет в него объект типа Loan, объект типа Date, строку и объект типа Circle,
+     а также используйте цикл для отображения всех элементов в списке путем вызова метода toString() этих объектов.
+     */
+
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        ArrayList<Object> list = new ArrayList<>();
+
+        list.add(new Account());
+        list.add(new Triangle());
+        list.add(new MyDate());
+
+        for (Object obj: list
+             ) {
+            System.out.println(obj.toString());
+        }
+
+
+
+
+
+
+
+    }
+
+}
+import java.beans.beancontext.BeanContext;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
+public class Work {
+    /**
+     Задание №25
+     Напишите следующий метод, который перетасовывает элементы целочисленного списка типа ArrayList:
+
+     public static void shuffle(ArrayList<Integer> list)
+     */
+
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        ArrayList<Integer> list = new ArrayList<>();
+        int number;
+        System.out.print("Введите числа через пробел");
+        do {
+            number = input.nextInt();
+            if (number != 0) {
+                list.add(number);
+            }
+        } while (number != 0);
+        shuffle(list);
+        System.out.println(list);
+
+    }
+    public static void shuffle(ArrayList<Integer> list) {
+        java.util.Collections.shuffle(list);
+    }
+}
+
+import java.beans.beancontext.BeanContext;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
+public class Work {
+    /**
+     Задание №26
+     Напишите программу, которая случайным образом заполняет матрицу n x n значениями 0 и 1,
+     отображает эту матрицу в консоли и находит строчки и столбцы с наибольшим количеством 1.
+     (Подсказка: используйте два списка типа ArrayList для хранения индексов строчек
+     и столбцов с наибольшим количеством 1.) Далее приведен пример выполнения этой программы:
+
+     Введите размер матрицы: 4
+     Матрица со случайными значениями равна
+     0011
+     0011
+     1101
+     1010
+     Индекс строчки с наибольшим кол-вом единиц: 2
+     Индекс столбца с наибольшим кол-вом единиц: 2, 3
+     */
+
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Введите размер матрицы: ");
+        ArrayList<ArrayList> list = new ArrayList<>();
+        int sizeMatrix = input.nextInt();
+
+        for (int i = 0; i < sizeMatrix; i++) {
+            ArrayList<Integer> temp = new ArrayList<>();
+            for (int j = 0; j < sizeMatrix; j++) {
+                temp.add(getRandomNumber(0,2));
+            }
+            list.add(temp);
+        }
+        System.out.println("Сформирована матрица");
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
+        int[] result = getMaxRowAndCol(list);
+
+        System.out.println("Индекс строчки с наибольшим кол-вом единиц: " + result[0]);
+        System.out.println("Индекс столбца с наибольшим кол-вом единиц: " + result[1]);
+
+    }
+
+    public static int[] getMaxRowAndCol(ArrayList<ArrayList> list ) {
+        int[] temp_row = new int[list.size()];
+        int[] temp_col = new int[list.size()];
+        int maxCol = 0;
+        int maxRow = 0;
+        for (int i = 0; i < list.size(); i++) {
+            for (int j = 0; j < list.size(); j++) {
+                temp_row[i] += (Integer) list.get(i).get(j);
+                temp_col[j] += (Integer) list.get(i).get(j);
+            }
+
+        }
+
+        for (int i = 0; i < temp_row.length; i++) {
+            if (temp_row[maxRow] < temp_row[i]) {
+                maxRow = i;
+            }
+            if (temp_col[maxCol] < temp_col[i]) {
+                maxCol = i;
+            }
+        }
+
+        return new int[]{maxRow, maxCol};
+    }
+
+
+    public static int getRandomNumber(int min, int max) {
+        return (int) ((Math.random() * (max - min)) + min);
+    }
+
+}
+import java.beans.beancontext.BeanContext;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
+public class Work {
+    /**
+     Задание №27
+     Напишите следующий метод сортировки числового списка типа ArrayList:
+
+     public static void sort(ArrayList<Integer> list)
+     Напишите тестовую программу, которая запрашивает у пользователя пять чисел, сохраняет их в списке и отображает в порядке возрастания.
+     */
+
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        ArrayList<Integer> list = new ArrayList<>();
+        System.out.print("Введите 5 чисел через пробел: ");
+        for (int i = 0; i < 5; i++) {
+            list.add(input.nextInt());
+        }
+        sort(list);
+        System.out.println(list);
+
+    }
+
+    public static void sort(ArrayList<Integer> list) {
+        java.util.Collections.sort(list);
+
+    }
+
+
+}
+import java.beans.beancontext.BeanContext;
+import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.GregorianCalendar;
+import java.util.Scanner;
+
+public class Work {
+    /**
+     Задание №28
+     Напишите следующий метод, который возвращает сумму всех чисел в списке типа ArrayList:
+
+     public static double sum(ArrayList<Double> list)
+     Напишите тестовую программу, которая запрашивает у пользователя пять чисел, сохраняет их в списке и отображает их сумму.
+     */
+
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        ArrayList<Double> list = new ArrayList<>();
+        System.out.print("Введите 5 чисел через пробел: ");
+        for (int i = 0; i < 5; i++) {
+            list.add(input.nextDouble());
+        }
+        double result = sum(list);
+        System.out.println(result);
+
+    }
+
+    public static double sum(ArrayList<Double> list) {
+        double result = 0;
+        for (Double val: list) {
+            result += val;
+        }
+        return result;
+    }
+
+    public static void sort(ArrayList<Integer> list) {
+        java.util.Collections.sort(list);
+
+    }
+
+
+}
+import java.beans.beancontext.BeanContext;
+import java.math.BigInteger;
+import java.util.*;
+
+public class Work {
+    /**
+     Задание №29
+     Напишите метод, который удаляет повторяющиеся элементы из целочисленного списка типа ArrayList,
+     используя следующий заголовок:
+
+     public static void removeDuplicate(ArrayList<Integer> list)
+     Напишите тестовую программу, которая запрашивает у пользователя 10 целых чисел для списка,
+     отображает несовпадающие целые числа в порядке их ввода и отделяет их друг от друга только одним пробелом.
+
+     Пример выполнения программы:
+
+     Введите десять целых чисел: 34 5 3 5 6 4 33 2 2 4
+     Несовпадающие целые числа равны 34 5 3 6 4 33 2
+     */
+
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        ArrayList<Integer> list = new ArrayList<>();
+        System.out.print("Введите десять целых чисел:: ");
+        for (int i = 0; i < 10; i++) {
+            list.add(input.nextInt());
+        }
+        removeDuplicate(list);
+
+
+
+    }
+
+    public static void removeDuplicate(ArrayList<Integer> list) {
+        Set<Integer> temp = new HashSet<>(list);
+        System.out.println(" Несовпадающие целые числа равны: " + temp);
+    }
+
+
+
+
+}
+
+import java.beans.beancontext.BeanContext;
+import java.math.BigInteger;
+import java.util.*;
+
+public class Work {
+    /**
+     Задание №31
+     Напишите метод, который возвращает из строки символьный массив типа ArrayList, используя следующий заголовок:
+
+     public static ArrayList<Character> toCharacterArray(String s)
+     Например, toCharacterArray("abc") возвращает список, содержащий символы 'a', 'b' и 'c'.
+     */
+
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String temp = "abc";
+        System.out.println(toCharacterArray(temp));
+
+
+
+    }
+    public static ArrayList<Character> toCharacterArray(String s) {
+
+        ArrayList<Character> result = new ArrayList<>();
+
+        for (int i = 0; i < s.length(); i++) {
+            result.add(s.charAt(i));
+        }
+        return result;
+
+
+    }
+
+
+
+
+
+
+
+}
+import java.util.*;
+
+public class Work {
+    /**
+     Задание №32 «Задача об упаковке в контейнеры»
+     Задача об упаковке в контейнеры заключается в упаковке предметов разного веса в контейнеры.
+     Пусть каждый контейнер содержит максимум 10 килограммов.
+     Программа использует алгоритм, который помещает предмет в первый контейнер, в который он поместится.
+     Программа запрашивает у пользователя общее количество предметов и вес каждого предмета.
+     Программа отображает общее количество контейнеров, необходимых для упаковки предметов, и содержимое каждого контейнера.
+     Ниже приведен пример выполнения программы:
+
+     Введите количество предметов: 6
+     Введите вес каждого предмета: 7 5 2 3 5 8
+     Контейнер 1 содержит предметы с весом 7 2
+     Контейнер 2 содержит предметы с весом 5 3
+     Контейнер 3 содержит предметы с весом 5
+     Контейнер 4 содержит предметы с весом 8
+     Дает ли эта программа оптимальное решение, то есть находит ли она минимальное количество контейнеров для упаковки объектов?
+     */
+
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        ArrayList<ArrayList> containers = new ArrayList<>();
+        ArrayList<Integer> objects = new ArrayList<>();
+        final int MAX_KILO = 10;
+
+        System.out.print("Введите количество предметов: ");
+        int numObjs = input.nextInt();
+        System.out.println();
+        System.out.print("Введите вес каждого предмета:");
+
+        for (int i = 0; i < numObjs; i++) {
+            objects.add(input.nextInt());
+        }
+        int currentContainer = 0;
+        containers.add(new ArrayList<Integer>());
+
+        for (Integer object: objects) {
+            while (true) {
+                if (sum(containers.get(currentContainer)) + object > MAX_KILO) {
+                    containers.add(new ArrayList<Integer>());
+                    currentContainer++;
+                    continue;
+                } else {
+                    containers.get(currentContainer).add(object);
+                    break;
+                }
+            }
+        }
+
+        for (ArrayList list: containers) {
+            System.out.println(list);
+        }
+    }
+
+    public static int sum(ArrayList<Integer> list) {
+        double result = 0;
+        for (Integer val: list) {
+            result += val;
+        }
+        return (int)result;
+    }
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Account {
@@ -5,6 +6,15 @@ public class Account {
     private double balance;
     private static double annualInterestRate;
     private Date dateCreated;
+    private String name;
+    private ArrayList<Transaction> transactions = new ArrayList<>();
+
+    public Account(String name, int id, double balance) {
+        this.id = id;
+        this.name = name;
+        this.balance = balance;
+        dateCreated = new java.util.Date();
+    }
 
     public Account(){
         dateCreated = new Date();
@@ -49,10 +59,18 @@ public class Account {
     }
 
     public void withdraw(double amount) {
-        balance -= amount;
+        transactions.add(new Transaction('-', amount, balance, ""));
     }
 
     public void deposit(double amount) {
-        balance += amount;
+        transactions.add(new Transaction('+', amount, balance, ""));
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public ArrayList<Transaction> getTransactions() {
+        return transactions;
     }
 }
